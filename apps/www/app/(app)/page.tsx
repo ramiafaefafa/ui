@@ -1,99 +1,47 @@
-import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-
-import { Announcement } from "@/components/announcement"
-import { CardsDemo } from "@/components/cards"
-import { ExamplesNav } from "@/components/examples-nav"
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { Button } from "@/registry/new-york/ui/button"
-
-const title = "Build your component library"
-const description =
-  "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code."
-
-export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    images: [
-      {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: [
-      {
-        url: `/og?title=${encodeURIComponent(
-          title
-        )}&description=${encodeURIComponent(description)}`,
-      },
-    ],
-  },
-}
-
-export default function IndexPage() {
+export default function Home() {
   return (
-    <>
-      <PageHeader>
-        <Announcement />
-        <PageHeaderHeading>{title}</PageHeaderHeading>
-        <PageHeaderDescription>{description}</PageHeaderDescription>
-        <PageActions>
-          <Button asChild size="sm" className="rounded-md">
-            <Link href="/docs/installation">Get Started</Link>
-          </Button>
-          <Button asChild size="sm" variant="ghost" className="rounded-md">
-            <Link href="/blocks">Browse Blocks</Link>
-          </Button>
-        </PageActions>
-      </PageHeader>
-      <div className="border-grid border-b">
-        <div className="container-wrapper">
-          <div className="container py-4">
-            <ExamplesNav className="[&>a:first-child]:text-primary" />
+    <div className="min-h-screen bg-blue-50 p-8">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-6xl font-bold text-blue-600 mb-4">
+          🤖 Pocket Waiter AI
+        </h1>
+        
+        <p className="text-2xl text-gray-700 mb-8">
+          Your Personal AI Restaurant Waiter
+        </p>
+
+        <div className="bg-white p-8 rounded-3xl shadow-lg mb-8">
+          <h2 className="text-3xl font-bold mb-4">How it works:</h2>
+          <div className="text-left space-y-4 text-lg">
+            <p>📱 1. Scan QR code at your table</p>
+            <p>💬 2. Chat with our AI waiter</p>
+            <p>🍽️ 3. Get personalized food recommendations</p>
+            <p>💳 4. Order and pay through the app</p>
           </div>
         </div>
-      </div>
-      <div className="container-wrapper">
-        <div className="container py-6">
-          <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
-            <Image
-              src="/examples/cards-light.png"
-              width={1280}
-              height={1214}
-              alt="Cards"
-              className="block dark:hidden"
-            />
-            <Image
-              src="/examples/cards-dark.png"
-              width={1280}
-              height={1214}
-              alt="Cards"
-              className="hidden dark:block"
-            />
-          </section>
-          <section
-            className="hidden md:block [&>div]:p-0"
-            style={
-              {
-                "--radius": "0.75rem",
-              } as React.CSSProperties
-            }
-          >
-            <CardsDemo />
-          </section>
+
+        <div className="space-y-4">
+          <button className="bg-blue-600 text-white px-8 py-4 rounded-2xl text-xl font-bold hover:bg-blue-700 w-full">
+            🚀 Start Ordering Now
+          </button>
+          
+          <button className="bg-green-600 text-white px-8 py-4 rounded-2xl text-xl font-bold hover:bg-green-700 w-full">
+            📋 Browse Menu
+          </button>
+          
+          <button className="bg-purple-600 text-white px-8 py-4 rounded-2xl text-xl font-bold hover:bg-purple-700 w-full">
+            👨‍💼 Restaurant Admin
+          </button>
+        </div>
+
+        <div className="mt-12 bg-gray-100 p-6 rounded-2xl">
+          <h3 className="text-xl font-bold mb-4">🔥 Demo Restaurant</h3>
+          <p className="text-gray-600">The Golden Fork - AI-Powered Dining</p>
+          <p className="text-sm text-gray-500 mt-2">
+            Table QR codes available • AI Chat enabled • Payments ready
+          </p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
